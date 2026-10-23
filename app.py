@@ -81,7 +81,7 @@ PAGE = """
 <body>
 <header><div class="logo">&#10003;</div><span>Study Planner</span></header>
 <main>
-  <h1 id="title">Unzela Fareed - Study Planner</h1>
+  <h1 id="title">Daily Task Manager</h1>
   <p class="sub">Stay organized. Keep it simple.</p>
 
   <div class="stats">

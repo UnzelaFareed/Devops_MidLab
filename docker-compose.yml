@@ -6,9 +6,9 @@ services:
       - "80:5000"
     environment:
       DB_HOST: db
-      DB_NAME: notesdb
-      DB_USER: postgres
-      DB_PASSWORD: postgres
+      DB_NAME: ${DB_NAME:-notesdb}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
     depends_on:
       db:
         condition: service_healthy
@@ -18,9 +18,9 @@ services:
     image: postgres:16
     container_name: notes-db
     environment:
-      POSTGRES_DB: notesdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ${DB_NAME:-notesdb}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:

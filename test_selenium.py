@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
 URL = (sys.argv[1] if len(sys.argv) > 1 else "http://YOUR-IP").rstrip("/")
-HOLD_SECONDS = 20
+HOLD_SECONDS = 30
 
 UNIQUE = "selenium-" + str(int(time.time()))
 EDITED = UNIQUE + "-edited"
@@ -63,7 +63,7 @@ try:
     box = wait.until(lambda d: d.find_element(By.NAME, "text"))
     box.clear()
     box.send_keys(EDITED)
-    driver.find_element(By.TAG_NAME, "button").click()
+    driver.find_element(By.CSS_SELECTOR, "form.add button").click()
     wait_row(EDITED)
     print("PASS 5: task edited")
 
